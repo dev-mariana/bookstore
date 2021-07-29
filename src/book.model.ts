@@ -1,7 +1,10 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, Table, Model } from "sequelize-typescript";
 
 @Table
 export class Book extends Model<Book> {
+
+    @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
+    id: number;
 
     @Column({ type: DataType.STRING(60), allowNull: false })
     code: string;
