@@ -6,10 +6,12 @@ import { BooksController } from './books.controller';
 import { BooksService } from './books.service';
 import * as dotenv from 'dotenv';
 import { Book } from './book.model';
+import { ConfigModule } from '@nestjs/config';
 dotenv.config();
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     SequelizeModule.forRoot({
       dialect: 'mysql',
       host: process.env.DB_HOST,
